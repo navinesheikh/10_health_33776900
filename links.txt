@@ -1,0 +1,8 @@
+home=https://doc.gold.ac.uk/usr/296/
+about=https://doc.gold.ac.uk/usr/296/about
+login=https://doc.gold.ac.uk/usr/296/login
+dashboard=https://doc.gold.ac.uk/usr/296/dashboard
+workouts=https://doc.gold.ac.uk/usr/296/workouts
+search=https://doc.gold.ac.uk/usr/296/search
+add_workout=https://doc.gold.ac.uk/usr/296/workouts/new
+quick_workouts=https://doc.gold.ac.uk/usr/296/workouts/quick
