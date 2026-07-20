@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -15,7 +15,7 @@
           <h1>Hello, <%= currentUser.firstName %>.</h1>
           <p>Here is the activity you have recorded so far.</p>
         </div>
-        <a class="button button-primary" href="/workouts/new">Log a workout</a>
+        <a class="button button-primary" href="<%= basePath %>/workouts/new">Log a workout</a>
       </header>
 
       <section class="stats-grid" aria-label="Workout totals">
@@ -42,7 +42,7 @@
             <span class="eyebrow">Latest activity</span>
             <h2>Recent workouts</h2>
           </div>
-          <a href="/workouts">View all</a>
+          <a href="<%= basePath %>/workouts">View all</a>
         </div>
 
         <% if (recentWorkouts.length) { %>
@@ -66,7 +66,7 @@
           <div class="empty-state">
             <h3>No workouts yet</h3>
             <p>Record your first activity to populate the dashboard.</p>
-            <a class="button button-primary" href="/workouts/new">Add first workout</a>
+            <a class="button button-primary" href="<%= basePath %>/workouts/new">Add first workout</a>
           </div>
         <% } %>
       </section>

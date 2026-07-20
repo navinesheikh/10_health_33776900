@@ -1,19 +1,19 @@
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="FitTrack home">
+    <a class="brand" href="<%= basePath %>/" aria-label="FitTrack home">
       <span class="brand-mark">FT</span>
       <span>FitTrack</span>
     </a>
 
     <nav class="main-nav" aria-label="Main navigation">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
+      <a href="<%= basePath %>/">Home</a>
+      <a href="<%= basePath %>/about">About</a>
       <% if (currentUser) { %>
-        <a href="/dashboard">Dashboard</a>
-        <a href="/workouts">Workouts</a>
-        <a href="/search">Search</a>
+        <a href="<%= basePath %>/dashboard">Dashboard</a>
+        <a href="<%= basePath %>/workouts">Workouts</a>
+        <a href="<%= basePath %>/search">Search</a>
         <% if (currentUser.role === 'admin') { %>
-          <a href="/admin/users">Admin</a>
+          <a href="<%= basePath %>/admin/users">Admin</a>
         <% } %>
       <% } %>
     </nav>
@@ -21,12 +21,12 @@
     <div class="account-nav">
       <% if (currentUser) { %>
         <span class="user-chip"><%= currentUser.username %></span>
-        <form action="/logout" method="post" class="inline-form">
+        <form action="<%= basePath %>/logout" method="post" class="inline-form">
           <button class="text-button" type="submit">Log out</button>
         </form>
       <% } else { %>
-        <a href="/login">Log in</a>
-        <a class="button button-small button-primary" href="/register">Get started</a>
+        <a href="<%= basePath %>/login">Log in</a>
+        <a class="button button-small button-primary" href="<%= basePath %>/register">Get started</a>
       <% } %>
     </div>
   </div>

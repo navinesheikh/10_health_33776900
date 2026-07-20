@@ -7,14 +7,19 @@ const db = global.db;
 const saltRounds = 10;
 const siteName = 'FitTrack';
 const categories = ['Strength', 'Cardio', 'Flexibility', 'Sports', 'Walking', 'Other'];
+const basePath = (process.env.HEALTH_BASE_PATH || 'http://localhost:8000').replace(/\/$/, '');
 
 function pageData(extra = {}) {
   return Object.assign({ siteName, categories }, extra);
 }
 
+function redirectTo(res, path) {
+  return res.redirect(`${basePath}${path}`);
+}
+
 function requireLogin(req, res, next) {
   if (!req.session.user) {
-    return res.redirect('/login');
+    return redirectTo(res, '/login');
   }
   next();
 }
@@ -144,7 +149,7 @@ router.post(
             return next(error);
           }
 
-          res.redirect('/login?registered=1');
+          redirectTo(res, '/login?registered=1');
         }
       );
     });
@@ -217,7 +222,7 @@ router.post(
           role: user.role
         };
 
-        res.redirect('/dashboard');
+        redirectTo(res, '/dashboard');
       });
     });
   }
@@ -229,7 +234,7 @@ router.post('/logout', requireLogin, (req, res, next) => {
       return next(error);
     }
     res.clearCookie('connect.sid');
-    res.redirect('/');
+    redirectTo(res, '/');
   });
 });
 
@@ -346,7 +351,7 @@ router.post('/workouts', requireLogin, workoutValidation, (req, res, next) => {
     if (error) {
       return next(error);
     }
-    res.redirect('/workouts');
+    redirectTo(res, '/workouts');
   });
 });
 
@@ -423,7 +428,7 @@ router.post('/workouts/:id/edit', requireLogin, workoutValidation, (req, res, ne
         message: 'That workout could not be updated.'
       }));
     }
-    res.redirect('/workouts');
+    redirectTo(res, '/workouts');
   });
 });
 
@@ -435,7 +440,7 @@ router.post('/workouts/:id/delete', requireLogin, (req, res, next) => {
       if (error) {
         return next(error);
       }
-      res.redirect('/workouts');
+      redirectTo(res, '/workouts');
     }
   );
 });

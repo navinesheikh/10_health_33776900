@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My workouts | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -16,8 +16,8 @@
           <p>Review, edit or remove the fitness sessions linked to your account.</p>
         </div>
         <div class="button-row">
-          <a class="button button-secondary" href="/workouts/quick">Quick workouts</a>
-          <a class="button button-primary" href="/workouts/new">Log a workout</a>
+          <a class="button button-secondary" href="<%= basePath %>/workouts/quick">Quick workouts</a>
+          <a class="button button-primary" href="<%= basePath %>/workouts/new">Log a workout</a>
         </div>
       </header>
 
@@ -41,8 +41,8 @@
                     <td><%= workout.calories_burned %></td>
                     <td>
                       <div class="table-actions">
-                        <a href="/workouts/<%= workout.id %>/edit">Edit</a>
-                        <form action="/workouts/<%= workout.id %>/delete" method="post" onsubmit="return confirm('Delete this workout?');">
+                        <a href="<%= basePath %>/workouts/<%= workout.id %>/edit">Edit</a>
+                        <form action="<%= basePath %>/workouts/<%= workout.id %>/delete" method="post" onsubmit="return confirm('Delete this workout?');">
                           <button class="danger-link" type="submit">Delete</button>
                         </form>
                       </div>
@@ -56,7 +56,7 @@
           <div class="empty-state">
             <h2>Your workout list is empty</h2>
             <p>Add a session and it will appear here.</p>
-            <a class="button button-primary" href="/workouts/new">Log a workout</a>
+            <a class="button button-primary" href="<%= basePath %>/workouts/new">Log a workout</a>
           </div>
         <% } %>
       </section>

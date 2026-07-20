@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quick workouts | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -15,7 +15,7 @@
           <h1>Quick workouts</h1>
           <p>Past activities lasting 30 minutes or less.</p>
         </div>
-        <a class="button button-secondary" href="/workouts">All workouts</a>
+        <a class="button button-secondary" href="<%= basePath %>/workouts">All workouts</a>
       </header>
 
       <section class="workout-card-grid">

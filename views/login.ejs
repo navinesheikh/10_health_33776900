@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Log in | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -28,7 +28,7 @@
         <% if (error) { %>
           <div class="alert alert-error"><%= error %></div>
         <% } %>
-        <form action="/login" method="post">
+        <form action="<%= basePath %>/login" method="post">
           <label for="username">Username</label>
           <input id="username" name="username" type="text" autocomplete="username" required>
 
@@ -37,7 +37,7 @@
 
           <button class="button button-primary button-full" type="submit">Log in</button>
         </form>
-        <p class="form-note">New to FitTrack? <a href="/register">Create an account</a>.</p>
+        <p class="form-note">New to FitTrack? <a href="<%= basePath %>/register">Create an account</a>.</p>
       </section>
     </main>
     <%- include('partials/footer') %>

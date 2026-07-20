@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create account | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -24,7 +24,7 @@
             </ul>
           </div>
         <% } %>
-        <form action="/register" method="post">
+        <form action="<%= basePath %>/register" method="post">
           <div class="field-pair">
             <div>
               <label for="first_name">First name</label>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %> | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -21,7 +21,7 @@
             <ul><% errors.forEach(function(error) { %><li><%= error.msg %></li><% }); %></ul>
           </div>
         <% } %>
-        <form action="<%= action %>" method="post">
+        <form action="<%= basePath %><%= action %>" method="post">
           <label for="exercise_name">Exercise name</label>
           <input id="exercise_name" name="exercise_name" value="<%= formData.exercise_name || '' %>" placeholder="e.g. Evening run" required>
 
@@ -57,7 +57,7 @@
 
           <div class="button-row form-actions">
             <button class="button button-primary" type="submit"><%= submitLabel %></button>
-            <a class="button button-secondary" href="/workouts">Cancel</a>
+            <a class="button button-secondary" href="<%= basePath %>/workouts">Cancel</a>
           </div>
         </form>
       </section>

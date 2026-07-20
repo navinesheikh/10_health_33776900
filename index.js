@@ -68,7 +68,7 @@ db.connect((error) => {
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.user || null;
-  res.locals.basePath = process.env.HEALTH_BASE_PATH || 'http://localhost:8000';
+  res.locals.basePath = (process.env.HEALTH_BASE_PATH || 'http://localhost:8000').replace(/\/$/, '');
   next();
 });
 

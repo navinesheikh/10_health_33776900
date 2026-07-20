@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search workouts | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -21,7 +21,7 @@
             <% errors.forEach(function(error) { %><p><%= error.msg %></p><% }); %>
           </div>
         <% } %>
-        <form action="/search-results" method="post" class="search-form">
+        <form action="<%= basePath %>/search-results" method="post" class="search-form">
           <label for="keyword">Search term</label>
           <div class="search-row">
             <input id="keyword" name="keyword" value="<%= keyword || '' %>" placeholder="e.g. strength or walking" required>

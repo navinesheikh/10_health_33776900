@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= siteName %> | Build healthier habits</title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -17,11 +17,11 @@
           <p>FitTrack gives you one clear place to record activities, review your totals and keep moving towards healthier habits.</p>
           <div class="button-row">
             <% if (currentUser) { %>
-              <a class="button button-primary" href="/dashboard">View dashboard</a>
-              <a class="button button-secondary" href="/workouts/new">Log a workout</a>
+              <a class="button button-primary" href="<%= basePath %>/dashboard">View dashboard</a>
+              <a class="button button-secondary" href="<%= basePath %>/workouts/new">Log a workout</a>
             <% } else { %>
-              <a class="button button-primary" href="/login">Log in</a>
-              <a class="button button-secondary" href="/register">Create an account</a>
+              <a class="button button-primary" href="<%= basePath %>/login">Log in</a>
+              <a class="button button-secondary" href="<%= basePath %>/register">Create an account</a>
             <% } %>
           </div>
         </div>

@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login audit | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
     <main class="container page-shell">
       <header class="page-heading heading-with-action">
         <div><span class="eyebrow">Administrator area</span><h1>Login audit</h1><p>The 100 most recent successful and failed login attempts.</p></div>
-        <a class="button button-secondary" href="/admin/users">View users</a>
+        <a class="button button-secondary" href="<%= basePath %>/admin/users">View users</a>
       </header>
       <section class="panel table-wrap">
         <table>

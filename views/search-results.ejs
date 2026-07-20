@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Search results | <%= siteName %></title>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="<%= basePath %>/main.css">
   </head>
   <body>
     <%- include('partials/header') %>
@@ -15,7 +15,7 @@
           <h1>Results for “<%= keyword %>”</h1>
           <p><%= workouts.length %> matching workout<%= workouts.length === 1 ? '' : 's' %> found.</p>
         </div>
-        <a class="button button-secondary" href="/search">New search</a>
+        <a class="button button-secondary" href="<%= basePath %>/search">New search</a>
       </header>
 
       <section class="panel">
