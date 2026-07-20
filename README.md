@@ -17,7 +17,7 @@ FitTrack is a health and fitness activity tracker built with Node.js, Express, E
 
 ## Installation
 
-1. Install Node.js 18 or later and MySQL.
+1. Install Node.js and MySQL.
 2. From MySQL, run `create_db.sql` and then `insert_test_data.sql`.
 3. Copy `.env.example` to `.env` and update values only if your MySQL settings differ.
 4. Run `npm install`.
