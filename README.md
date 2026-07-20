@@ -51,7 +51,3 @@ insert_test_data.sql     Marker account and sample workouts
 links.txt                Deployed application links
 report.docx              Assignment documentation
 ```
-
-## Deployment
-
-Deploy the repository to the Goldsmiths virtual server or another public host, update `links.txt` if the base URL changes, and ensure the process continues running after logout. The submitted GitHub repository must be named `10_health_33776900`, and GitHub user `lfern002` must be added as a collaborator.
