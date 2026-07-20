@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Users | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container page-shell">
+      <header class="page-heading heading-with-action">
+        <div><span class="eyebrow">Administrator area</span><h1>Registered users</h1><p>Account data is available only to administrators.</p></div>
+        <a class="button button-secondary" href="/admin/audit">View login audit</a>
+      </header>
+      <section class="panel table-wrap">
+        <table>
+          <thead><tr><th>Username</th><th>Name</th><th>Email</th><th>Role</th><th>Joined</th></tr></thead>
+          <tbody>
+            <% users.forEach(function(user) { %>
+              <tr>
+                <td><strong><%= user.username %></strong></td>
+                <td><%= user.first_name %> <%= user.last_name %></td>
+                <td><%= user.email %></td>
+                <td><span class="tag"><%= user.role %></span></td>
+                <td><%= formatDate(user.created_at) %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

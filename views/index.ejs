@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= siteName %> | Build healthier habits</title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-copy">
+          <span class="eyebrow">Health and fitness, made measurable</span>
+          <h1>Small workouts.<br><span>Visible progress.</span></h1>
+          <p>FitTrack gives you one clear place to record activities, review your totals and keep moving towards healthier habits.</p>
+          <div class="button-row">
+            <% if (currentUser) { %>
+              <a class="button button-primary" href="/dashboard">View dashboard</a>
+              <a class="button button-secondary" href="/workouts/new">Log a workout</a>
+            <% } else { %>
+              <a class="button button-primary" href="/login">Log in</a>
+              <a class="button button-secondary" href="/register">Create an account</a>
+            <% } %>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="FitTrack benefits">
+          <div class="metric-card metric-card-accent">
+            <span class="metric-icon">01</span>
+            <div><strong>Record</strong><small>Exercise, duration and calories</small></div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-icon">02</span>
+            <div><strong>Review</strong><small>Your personal activity dashboard</small></div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-icon">03</span>
+            <div><strong>Improve</strong><small>Search and update your history</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-section container">
+        <div class="section-heading">
+          <span class="eyebrow">Everything in one place</span>
+          <h2>A simple routine for staying accountable</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-number">01</span>
+            <h3>Log each workout</h3>
+            <p>Store the activity type, duration, estimated calories, date and personal notes.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">02</span>
+            <h3>See your totals</h3>
+            <p>Your dashboard calculates completed workouts, active minutes and calories burned.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-number">03</span>
+            <h3>Find past sessions</h3>
+            <p>Search the database by exercise, category or notes and edit your own entries.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>

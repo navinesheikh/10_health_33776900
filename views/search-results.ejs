@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search results | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container page-shell">
+      <header class="page-heading heading-with-action">
+        <div>
+          <span class="eyebrow">Database search results</span>
+          <h1>Results for “<%= keyword %>”</h1>
+          <p><%= workouts.length %> matching workout<%= workouts.length === 1 ? '' : 's' %> found.</p>
+        </div>
+        <a class="button button-secondary" href="/search">New search</a>
+      </header>
+
+      <section class="panel">
+        <% if (workouts.length) { %>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Exercise</th><th>Category</th><th>Date</th><th>Duration</th><th>Calories</th></tr></thead>
+              <tbody>
+                <% workouts.forEach(function(workout) { %>
+                  <tr>
+                    <td><strong><%= workout.exercise_name %></strong><% if (workout.notes) { %><small class="table-note"><%= workout.notes %></small><% } %></td>
+                    <td><span class="tag"><%= workout.category %></span></td>
+                    <td><%= formatDate(workout.workout_date) %></td>
+                    <td><%= workout.duration_minutes %> min</td>
+                    <td><%= workout.calories_burned %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        <% } else { %>
+          <div class="empty-state"><h2>No matches</h2><p>Try a different exercise, category or note.</p></div>
+        <% } %>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

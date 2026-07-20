@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search workouts | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container page-shell page-narrow">
+      <header class="page-heading">
+        <span class="eyebrow">Database search</span>
+        <h1>Find a workout</h1>
+        <p>Search your personal history by exercise name, category or words from your notes.</p>
+      </header>
+
+      <section class="search-card">
+        <% if (errors.length) { %>
+          <div class="alert alert-error">
+            <% errors.forEach(function(error) { %><p><%= error.msg %></p><% }); %>
+          </div>
+        <% } %>
+        <form action="/search-results" method="post" class="search-form">
+          <label for="keyword">Search term</label>
+          <div class="search-row">
+            <input id="keyword" name="keyword" value="<%= keyword || '' %>" placeholder="e.g. strength or walking" required>
+            <button class="button button-primary" type="submit">Search</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

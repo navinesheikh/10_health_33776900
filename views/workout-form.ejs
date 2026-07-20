@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %> | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container form-page">
+      <section class="form-intro">
+        <span class="eyebrow">Fitness record</span>
+        <h1><%= title %></h1>
+        <p>Record the key details so your dashboard and activity history remain accurate.</p>
+      </section>
+
+      <section class="form-card form-card-wide">
+        <% if (errors.length) { %>
+          <div class="alert alert-error">
+            <ul><% errors.forEach(function(error) { %><li><%= error.msg %></li><% }); %></ul>
+          </div>
+        <% } %>
+        <form action="<%= action %>" method="post">
+          <label for="exercise_name">Exercise name</label>
+          <input id="exercise_name" name="exercise_name" value="<%= formData.exercise_name || '' %>" placeholder="e.g. Evening run" required>
+
+          <div class="field-pair">
+            <div>
+              <label for="category">Category</label>
+              <select id="category" name="category" required>
+                <option value="">Choose a category</option>
+                <% categories.forEach(function(category) { %>
+                  <option value="<%= category %>" <%= formData.category === category ? 'selected' : '' %>><%= category %></option>
+                <% }); %>
+              </select>
+            </div>
+            <div>
+              <label for="workout_date">Date</label>
+              <input id="workout_date" name="workout_date" type="date" value="<%= formData.workout_date || '' %>" required>
+            </div>
+          </div>
+
+          <div class="field-pair">
+            <div>
+              <label for="duration_minutes">Duration (minutes)</label>
+              <input id="duration_minutes" name="duration_minutes" type="number" min="1" max="600" value="<%= formData.duration_minutes !== undefined ? formData.duration_minutes : '' %>" required>
+            </div>
+            <div>
+              <label for="calories_burned">Estimated calories</label>
+              <input id="calories_burned" name="calories_burned" type="number" min="0" max="5000" value="<%= formData.calories_burned !== undefined ? formData.calories_burned : 0 %>" required>
+            </div>
+          </div>
+
+          <label for="notes">Notes <span class="optional">optional</span></label>
+          <textarea id="notes" name="notes" rows="5" maxlength="500" placeholder="How did the session feel?"><%= formData.notes || '' %></textarea>
+
+          <div class="button-row form-actions">
+            <button class="button button-primary" type="submit"><%= submitLabel %></button>
+            <a class="button button-secondary" href="/workouts">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

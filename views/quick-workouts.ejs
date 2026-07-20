@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quick workouts | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container page-shell">
+      <header class="page-heading heading-with-action">
+        <div>
+          <span class="eyebrow">Filtered database view</span>
+          <h1>Quick workouts</h1>
+          <p>Past activities lasting 30 minutes or less.</p>
+        </div>
+        <a class="button button-secondary" href="/workouts">All workouts</a>
+      </header>
+
+      <section class="workout-card-grid">
+        <% if (workouts.length) { %>
+          <% workouts.forEach(function(workout) { %>
+            <article class="workout-card">
+              <span class="tag"><%= workout.category %></span>
+              <h2><%= workout.exercise_name %></h2>
+              <div class="workout-metrics">
+                <span><strong><%= workout.duration_minutes %></strong> minutes</span>
+                <span><strong><%= workout.calories_burned %></strong> calories</span>
+              </div>
+              <small><%= formatDate(workout.workout_date) %></small>
+            </article>
+          <% }); %>
+        <% } else { %>
+          <div class="empty-state panel">
+            <h2>No quick workouts found</h2>
+            <p>Workouts of 30 minutes or less will appear here.</p>
+          </div>
+        <% } %>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

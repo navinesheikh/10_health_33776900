@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container page-shell">
+      <header class="page-heading heading-with-action">
+        <div>
+          <span class="eyebrow">Personal dashboard</span>
+          <h1>Hello, <%= currentUser.firstName %>.</h1>
+          <p>Here is the activity you have recorded so far.</p>
+        </div>
+        <a class="button button-primary" href="/workouts/new">Log a workout</a>
+      </header>
+
+      <section class="stats-grid" aria-label="Workout totals">
+        <article class="stat-card">
+          <span>Workouts</span>
+          <strong><%= summary.workout_count %></strong>
+          <small>sessions recorded</small>
+        </article>
+        <article class="stat-card stat-card-dark">
+          <span>Active time</span>
+          <strong><%= summary.total_minutes %></strong>
+          <small>minutes completed</small>
+        </article>
+        <article class="stat-card stat-card-accent">
+          <span>Energy</span>
+          <strong><%= summary.total_calories %></strong>
+          <small>estimated calories</small>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">Latest activity</span>
+            <h2>Recent workouts</h2>
+          </div>
+          <a href="/workouts">View all</a>
+        </div>
+
+        <% if (recentWorkouts.length) { %>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Exercise</th><th>Category</th><th>Date</th><th>Minutes</th><th>Calories</th></tr></thead>
+              <tbody>
+                <% recentWorkouts.forEach(function(workout) { %>
+                  <tr>
+                    <td><strong><%= workout.exercise_name %></strong></td>
+                    <td><span class="tag"><%= workout.category %></span></td>
+                    <td><%= formatDate(workout.workout_date) %></td>
+                    <td><%= workout.duration_minutes %></td>
+                    <td><%= workout.calories_burned %></td>
+                  </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        <% } else { %>
+          <div class="empty-state">
+            <h3>No workouts yet</h3>
+            <p>Record your first activity to populate the dashboard.</p>
+            <a class="button button-primary" href="/workouts/new">Add first workout</a>
+          </div>
+        <% } %>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

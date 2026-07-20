@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %> | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container error-page">
+      <span class="eyebrow">FitTrack</span>
+      <h1><%= title %></h1>
+      <p><%= message %></p>
+      <a class="button button-primary" href="/">Return home</a>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

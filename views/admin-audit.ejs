@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login audit | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container page-shell">
+      <header class="page-heading heading-with-action">
+        <div><span class="eyebrow">Administrator area</span><h1>Login audit</h1><p>The 100 most recent successful and failed login attempts.</p></div>
+        <a class="button button-secondary" href="/admin/users">View users</a>
+      </header>
+      <section class="panel table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Username</th><th>Result</th><th>Attempted</th></tr></thead>
+          <tbody>
+            <% if (logs.length) { %>
+              <% logs.forEach(function(log) { %>
+                <tr>
+                  <td><%= log.id %></td>
+                  <td><strong><%= log.username %></strong></td>
+                  <td><span class="status <%= log.success ? 'status-success' : 'status-failed' %>"><%= log.success ? 'Successful' : 'Failed' %></span></td>
+                  <td><%= formatDateTime(log.attempted_at) %></td>
+                </tr>
+              <% }); %>
+            <% } else { %>
+              <tr><td colspan="4">No login attempts have been recorded.</td></tr>
+            <% } %>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

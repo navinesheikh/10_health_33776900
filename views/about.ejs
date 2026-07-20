@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | <%= siteName %></title>
+    <link rel="stylesheet" href="/main.css">
+  </head>
+  <body>
+    <%- include('partials/header') %>
+    <main class="container page-shell">
+      <header class="page-heading">
+        <span class="eyebrow">About the application</span>
+        <h1>Fitness tracking without the clutter</h1>
+        <p>FitTrack is a health and fitness web application designed to make personal activity records easy to enter, understand and maintain.</p>
+      </header>
+
+      <section class="content-grid">
+        <article class="content-card">
+          <h2>What it does</h2>
+          <p>Registered users can securely log workouts, review their activity totals, search previous sessions and update or remove their own records.</p>
+        </article>
+        <article class="content-card">
+          <h2>How it works</h2>
+          <p>The application uses Node.js and Express for server-side logic, EJS for dynamic pages and MySQL for users, workouts and login auditing.</p>
+        </article>
+        <article class="content-card">
+          <h2>Privacy by design</h2>
+          <p>Sessions protect personal pages, SQL parameters protect database queries and passwords are stored as bcrypt hashes rather than plain text.</p>
+        </article>
+        <article class="content-card">
+          <h2>Built for progress</h2>
+          <p>Summary statistics and quick-workout filtering help users recognise consistency and find achievable sessions when time is limited.</p>
+        </article>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>
