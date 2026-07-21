@@ -612,7 +612,7 @@ tbody tr:last-child td {
   font-size: 1.06rem;
 }
 
-.marker-card {
+.demo-card {
   display: grid;
   gap: 5px;
   margin-top: 30px;
@@ -622,7 +622,7 @@ tbody tr:last-child td {
   background: white;
 }
 
-.marker-card code {
+.demo-card code {
   padding: 2px 5px;
   border-radius: 5px;
   background: var(--surface-soft);

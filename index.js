@@ -47,12 +47,13 @@ app.use(session({
   }
 }));
 
-// The database settings use the environment variable names from the brief.
+// Create the MySQL connection from environment variables, with local defaults.
 const db = mysql.createConnection({
   host: process.env.HEALTH_HOST || 'localhost',
   user: process.env.HEALTH_USER || 'health_app',
   password: process.env.HEALTH_PASSWORD || 'qwertyuiop',
-  database: process.env.HEALTH_DATABASE || 'health'
+  database: process.env.HEALTH_DATABASE || 'health',
+  dateStrings: ['DATE']
 });
 
 global.db = db;

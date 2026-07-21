@@ -24,12 +24,12 @@ FitTrack is a health and fitness activity tracker built with Node.js, Express, E
 5. Run `node index.js`.
 6. Open `http://localhost:8000`.
 
-The required marker account is:
+A sample administrator account is included:
 
 - Username: `gold`
 - Password: `smiths123ABC$`
 
-The application uses the required database name `health`, listens on port `8000`, and supports the following environment variables:
+By default, the application uses the `health` database, listens on port `8000`, and supports the following environment variables:
 
 ```text
 HEALTH_HOST=localhost
@@ -47,7 +47,7 @@ routes/main.js           Routes, validation, authentication and SQL queries
 views/                   EJS user interface templates
 public/main.css          Responsive visual design
 create_db.sql            Complete MySQL data model
-insert_test_data.sql     Marker account and sample workouts
+insert_test_data.sql     Sample administrator account and workouts
 links.txt                Deployed application links
-report.docx              Assignment documentation
+report.docx              Project documentation
 ```

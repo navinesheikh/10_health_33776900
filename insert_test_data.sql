@@ -1,4 +1,4 @@
--- FitTrack marker account and sample fitness data
+-- FitTrack sample administrator account and fitness data
 USE health;
 
 INSERT INTO users (
@@ -12,7 +12,7 @@ INSERT INTO users (
 VALUES (
   'gold',
   'Goldsmiths',
-  'Marker',
+  'Admin',
   'gold@example.com',
   '$2b$10$/3Zmz7WT/wOJi9GfNw2uhe8iaOvkHihUyt7n.RC.iBjb0K3dZLrCG',
   'admin'
